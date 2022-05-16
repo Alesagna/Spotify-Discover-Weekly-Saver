@@ -2,11 +2,15 @@ from authentication import refreshToken, base_64ID
 import requests
 import json
 
+#Initialize class that will hold the function to refresh the token
+
 class Refresh:
 
     def __init__(self):
         self.refresh_token = refreshToken
         self.base_64 = base_64ID
+        
+        #Define function to refresh token
 
     def refresh(self):
 
