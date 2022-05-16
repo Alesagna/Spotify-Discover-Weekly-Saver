@@ -5,6 +5,8 @@ from authentication import spotifyID, spotifyToken, dwID
 from datetime import date
 from tokenrefresh import Refresh
 
+#Initialize class with functions and necessary parameters
+
 class saveSongs:
     def __init__(self):
         self.spotifyID = spotifyID
@@ -12,6 +14,8 @@ class saveSongs:
         self.dwID = dwID
         self.songs = ""
         self.newDwID = ""
+        
+        #Scrape songs from Discover Weekly Playlist using the Playlist ID
 
     def findSongs(self):
         print("Finding my Discover Weekly Songs...")
@@ -25,6 +29,7 @@ class saveSongs:
             self.songs += (m["track"]["uri"] + ",")
         self.songs = self.songs[:-1]
         
+        #Create new Playlist
 
     def makePlaylist(self):
         print("Creating my Playlist and Adding Songs...")
@@ -42,6 +47,8 @@ class saveSongs:
         response_json = response.json()
         print(response_json)
         return response_json["id"]
+    
+    #Add songs to new playlist
 
     def addSongs(self):
         self.newDwID = self.makePlaylist()
